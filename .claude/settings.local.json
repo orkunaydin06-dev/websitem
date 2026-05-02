@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(npx claude-code-templates@latest --skill creative-design/frontend-design 2>&1)",
+      "PowerShell(cmd /c \"dir /b /s \"\"c:\\\\Users\\\\orkun\\\\Claude Kisisel\\\\website\\\\node_modules\\\\next\\\\dist\\\\docs\\\\01-app\"\"\" 2>&1)",
+      "PowerShell(Invoke-WebRequest -Uri \"http://localhost:3000\" -UseBasicParsing -TimeoutSec 10 2>&1)",
+      "PowerShell(cd \"c:\\\\Users\\\\orkun\\\\Claude Kişisel\\\\website\"; Start-Process powershell -ArgumentList \"-Command\", \"cd 'c:\\\\Users\\\\orkun\\\\Claude Kişisel\\\\website'; npm run dev\" -WindowStyle Normal; Start-Sleep -Seconds 12; Invoke-WebRequest -Uri \"http://localhost:3000\" -UseBasicParsing -TimeoutSec 15 2>&1 | Select-Object StatusCode, StatusDescription)"
+    ]
+  }
+}
