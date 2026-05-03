@@ -2,9 +2,7 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import Hero from "@/components/sections/Hero";
 import About from "@/components/sections/About";
-import Projects from "@/components/sections/Projects";
-import Speaking from "@/components/sections/Speaking";
-import StuffILike from "@/components/sections/StuffILike";
+import Services from "@/components/sections/Services";
 import Contact from "@/components/sections/Contact";
 import BlogCard from "@/components/blog/BlogCard";
 import { blogPosts } from "@/lib/blog-data";
@@ -19,7 +17,7 @@ export default function Home() {
       <main>
         <Hero />
         <About />
-        <Projects />
+        <Services />
 
         <section id="blog" className="py-32 px-6">
           <div className="max-w-6xl mx-auto">
@@ -62,8 +60,6 @@ export default function Home() {
           </div>
         </section>
 
-        <Speaking />
-        <StuffILike />
         <Contact />
       </main>
       <Footer />

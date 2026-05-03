@@ -2,49 +2,34 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { EASE } from "@/lib/motion";
 
-const values = [
-  {
-    title: "Şeffaflık",
-    description:
-      "Bildiklerimi paylaşırım, bilmediklerimi de. Gerçek öğrenme açıklık gerektirir.",
-  },
-  {
-    title: "Ustalık",
-    description:
-      "Ortalama yetersizdir. Her işte gerçekten iyi olmaya çalışmak, yöntemin kendisidir.",
-  },
-  {
-    title: "Sürekli Öğrenme",
-    description:
-      "En büyük rekabet avantajı öğrenme hızıdır. Kitap, deney, hata — hepsi sınıftır.",
-  },
-  {
-    title: "Küçük ve Güçlü",
-    description:
-      "Büyük ekip = büyük güç değil. Odaklı, küçük ve otomatize edilmiş bir iş, birçok şirketi yener.",
-  },
+const timeline = [
+  { year: "2025–", company: "Google", role: "Account Manager, Dublin İrlanda" },
+  { year: "2023–25", company: "Coca-Cola İçecek", role: "Grup Gelir Büyüme Yöneticisi · 9 ülke" },
+  { year: "2022–23", company: "Unilever / Lipton", role: "Ticari Kategori & Müşteri Pazarlama Yöneticisi" },
+  { year: "2021", company: "Hepsiburada", role: "Kategori Geliştirme Yöneticisi" },
+  { year: "2019–21", company: "Karaca", role: "Satış Yöneticisi & CEO Strateji Danışmanı" },
+  { year: "2015–18", company: "L'Oréal", role: "Kilit Hesap Yöneticisi" },
 ];
 
-const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
-
 const fadeUp = {
-  hidden: { opacity: 0, y: 40 },
+  hidden: { opacity: 0, y: 30 },
   show: { opacity: 1, y: 0, transition: { duration: 0.8, ease: EASE } },
 };
 
 const stagger = {
   hidden: {},
-  show: { transition: { staggerChildren: 0.1 } },
+  show: { transition: { staggerChildren: 0.08 } },
 };
 
 export default function About() {
   return (
-    <section id="hakkimda" className="py-32 px-6">
+    <section id="hakkimda" className="py-32 px-6 bg-surface">
       <div className="max-w-6xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-start">
           <motion.div
-            initial={{ opacity: 0, x: -40 }}
+            initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.9, ease: EASE }}
@@ -57,10 +42,9 @@ export default function About() {
                 fill
                 className="object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-bg/40 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-bg/30 to-transparent" />
             </div>
-            <div className="absolute -bottom-6 -right-6 w-32 h-32 border border-accent/30 rounded-sm -z-10" />
-            <div className="absolute -top-6 -left-6 w-24 h-24 border border-border rounded-sm -z-10" />
+            <div className="absolute -bottom-5 -right-5 w-28 h-28 border border-accent/25 rounded-sm -z-10" />
           </motion.div>
 
           <motion.div
@@ -78,60 +62,50 @@ export default function About() {
 
             <motion.h2
               variants={fadeUp}
-              className="font-display text-5xl md:text-6xl font-light text-ink leading-tight mb-6"
+              className="font-display text-5xl md:text-6xl font-light text-ink leading-tight mb-8"
             >
-              İstanbul'dan
+              Küresel
               <br />
-              <span className="italic text-accent">dünyaya</span> uzanan
+              <span className="italic text-accent">markalarda</span>
               <br />
-              bir merak.
+              büyütülmüş
+              <br />
+              bir bakış açısı.
             </motion.h2>
 
-            <motion.p
-              variants={fadeUp}
-              className="text-ink-muted leading-relaxed mb-4"
-            >
-              Merhaba. Ben Orkun — yazan, kodlayan ve şirket kuran biri.
-              Özellikle uzaktan çalışma ve küçük takımların büyük iş çıkarması
-              üzerine takıntılıyım.
+            <motion.p variants={fadeUp} className="text-ink-muted leading-relaxed mb-4">
+              Merhaba. Ben Orkun — pazarlama stratejisti ve büyüme danışmanı.
+              ODTÜ'de işletme, İsveç'te Lund Üniversitesi'nde uluslararası pazarlama
+              üzerine yüksek lisans yaptım.
             </motion.p>
 
-            <motion.p
-              variants={fadeUp}
-              className="text-ink-muted leading-relaxed mb-4"
-            >
-              2022'den beri bootstrapped ürünler üzerine çalışıyorum. Şu an{" "}
-              <span className="text-ink font-medium">Akış</span>'ı kuruyorum —
-              dağıtık ekipler için asenkron iş birliği aracı. Aynı zamanda{" "}
-              <span className="text-ink font-medium">Dijital Pusulam</span>{" "}
-              bültenini her Salı gönderiyorum.
+            <motion.p variants={fadeUp} className="text-ink-muted leading-relaxed mb-4">
+              L'Oréal ile başlayan kariyerim Unilever, Hepsiburada, Karaca ve
+              Coca-Cola İçecek üzerinden bugün Google İrlanda'ya uzandı. 10 yıl
+              boyunca FMCG, perakende ve teknoloji sektörlerinde fiyatlandırma,
+              kategori yönetimi ve büyüme stratejisi alanlarında çalıştım.
             </motion.p>
 
-            <motion.p
-              variants={fadeUp}
-              className="text-ink-muted leading-relaxed mb-10"
-            >
-              Girişimcilik, ürün geliştirme ve üretkenlik üzerine yazmak benim
-              için hem düşünme biçimi hem de toplulukla değer paylaşmanın yolu.
-              Bu site o paylaşımın evi.
+            <motion.p variants={fadeUp} className="text-ink-muted leading-relaxed mb-10">
+              İş dışında sanat, felsefe ve kişisel gelişim üzerine düşünüyor,
+              yazıyorum. Büyüme zihniyetini hem kurumsal hem bireysel boyutta
+              nasıl inşa ederiz sorusu benim için hâlâ en ilgi çekici soru.
             </motion.p>
 
-            <motion.div
-              variants={stagger}
-              className="grid grid-cols-1 sm:grid-cols-2 gap-4"
-            >
-              {values.map((v) => (
+            <motion.div variants={stagger} className="space-y-2">
+              {timeline.map((item) => (
                 <motion.div
-                  key={v.title}
+                  key={item.year}
                   variants={fadeUp}
-                  className="p-4 border border-border rounded-sm bg-surface hover:border-accent/40 transition-colors duration-300"
+                  className="flex items-start gap-4 py-3 border-b border-border last:border-b-0"
                 >
-                  <h3 className="text-accent font-medium text-sm mb-1">
-                    {v.title}
-                  </h3>
-                  <p className="text-ink-muted text-xs leading-relaxed">
-                    {v.description}
-                  </p>
+                  <span className="text-xs text-ink-faint w-14 shrink-0 pt-0.5 tabular-nums">
+                    {item.year}
+                  </span>
+                  <div>
+                    <span className="text-sm font-medium text-ink">{item.company}</span>
+                    <span className="text-sm text-ink-muted"> · {item.role}</span>
+                  </div>
                 </motion.div>
               ))}
             </motion.div>

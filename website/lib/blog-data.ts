@@ -11,240 +11,168 @@ export type BlogPost = {
 
 export const blogPosts: BlogPost[] = [
   {
-    slug: "sifirdan-saas-kurarken-ogrendiklerim",
-    title: "Sıfırdan Bir SaaS Ürünü Kurarken Öğrendiklerim",
+    slug: "buyume-zihniyeti-potansiyelinizin-sinirini-kim-koyor",
+    title: "Büyüme Zihniyeti: Potansiyelinizin Sınırını Kim Koyuyor?",
     excerpt:
-      "İki yıl önce hiçbir şeyim yoktu. Bir fikrim, boş bir GitHub repo'su ve her geceyi kodlamaya harcamaya hazır bir tutkum vardı. Bugün, gerçek aboneleri olan, gerçek para kazanan bir ürüne sahibim — ama yol hiç de beklediğim gibi olmadı.",
-    date: "15 Mart 2026",
-    readTime: 12,
-    tags: ["girişimcilik", "SaaS", "ürün"],
+      "Carol Dweck'in onlarca yıllık araştırması tek bir şeyi kanıtlıyor: başarıyı belirleyen yetenek değil, yetenekler hakkındaki inançtır. Bu inanç hem kariyerinizi hem işinizi kökten değiştirebilir.",
+    date: "10 Nisan 2026",
+    readTime: 8,
+    tags: ["büyüme", "kişisel gelişim", "strateji"],
     coverImage: "/images/blog-saas-cover.jpg",
     content: `
-<p>İki yıl önce hiçbir şeyim yoktu. Bir fikrim, boş bir GitHub repo'su ve her geceyi kodlamaya harcamaya hazır bir tutkum vardı. Bugün, gerçek aboneleri olan, gerçek para kazanan bir ürüne sahibim — ama yol hiç de beklediğim gibi olmadı.</p>
+<p>Stanford Üniversitesi'nde psikoloji profesörü Carol Dweck yıllarca bir soruyu araştırdı: neden bazı insanlar başarısızlık karşısında daha da güçlenirken, diğerleri çöküyor?</p>
 
-<p>Bu yazıda, Akış'ı sıfırdan kurarken yaptığım hataları, öğrendiğim dersleri ve bugün tekrar başlasaydım farklı yapacaklarımı paylaşıyorum. Motivasyon yazısı değil bu — gerçek, ham bir öğrenme günlüğü.</p>
+<p>Cevap şaşırtıcı derecede basitti: <strong>zihin setleri</strong>. Yeteneklerin sabit olduğuna inananlar (fixed mindset) ilk engelde duruyor. Yeteneklerin geliştirilebileceğine inananlar (growth mindset) ise engeli bir egzersiz olarak görüyor.</p>
 
-<h2>1. Kullanıcıyla Konuşmadan Önce Kod Yazmak En Büyük Hatam Oldu</h2>
+<h2>Bu Sadece Motivasyon Kitabı Lafı Değil</h2>
 
-<p>İlk altı ay boyunca neredeyse tamamen kodladım. Harika bir API mimarisi, temiz bir codebase, kapsamlı bir test suite. Tüm bunlar var ama... kimse istemiyordu.</p>
+<p>Büyüme zihniyeti kavramı yanlış anlaşılıyor. "Olumlu düşün, başarırsın" demek değil bu. Tam tersine, gerçekçi ve zorlu bir bakış açısı.</p>
 
-<p>Gerçek bir müşteriyle ilk kez altıncı ayda konuştuğumda öğrendiğim şey şoktu: benim "çözdüğüm problem" aslında onları çok da rahatsız etmiyordu. Asıl problem başka bir yerdeydi. Altı ay boşa gitmiş değildi ama yeniden organize etmek için ciddi zaman harcadım.</p>
+<p>Büyüme zihniyetine sahip biri şunu söyler: "Henüz iyi değilim. Ama iyi olabilirim — doğru çabayı, doğru stratejiyle, doğru süre boyunca gösterirsem."</p>
 
-<p><strong>Öğrenilen ders:</strong> Kod yazmadan önce 20 potansiyel müşteriyle konuş. Çözdüğünü düşündüğün problemi onlara anlat. Ne söylediklerini değil, nasıl tepki verdiklerini gözlemle.</p>
+<p>Bu fark küçük görünür ama sonuçları devasa. Google'da çalışırken gördüm bunu defalarca: en iyi pazarlamacılar hata yaptıklarında savunmaya geçmez. Hatadan sistematik bir şekilde öğrenirler.</p>
 
-<img src="/images/blog-saas-inline-1.jpg" alt="Kullanıcı araştırması notları" class="w-full rounded-lg my-8 aspect-video object-cover" />
+<blockquote>"Bir hatayı analiz etmeden geçmek, büyümenin en büyük düşmanıdır."</blockquote>
 
-<h2>2. Fiyatlandırma Korkum Bana Pahalıya Patladı</h2>
+<h2>İşinize Nasıl Uygulanır?</h2>
 
-<p>İlk başlattığımda aylık 9 dolar ücretlendirdim. "Başlangıç için düşük tutalım, sonra artırırız" diye düşündüm. Yanlış.</p>
+<p>Büyüme zihniyeti bireysel bir beceri gibi görünse de, kurumsal kültürde de yaşar veya ölür. Şunu düşünün:</p>
 
-<p>Ucuz fiyat iki şey söyler: "Bu ürün değerli değil" ve "Ciddi bir işletme değiliz." İlk 30 kullanıcımın büyük çoğunluğu fırsatçılardı — ücret artınca gittiler. Asıl hedef kitlem zaten 9 dolara değil, 49 dolara bakmıyordu bile.</p>
+<p>Ekibiniz başarısız bir kampanya sonrasında ne yapıyor? Suçlu arıyor mu, yoksa veri topluyor mu? Yöneticiler "bu işe yaramadı, neden?" diye soruyor mu, yoksa "bu işe yaramadı, bitti" mi diyor?</p>
 
-<p>Fiyatı 49 dolara çıkardığımda aylık gelir düştü ama churn da dramatik şekilde düştü. Daha az müşteri, daha fazla gelir, daha az destek yükü.</p>
+<p>Büyüme odaklı bir kültür inşa etmek için üç pratik adım:</p>
 
-<blockquote>"Fiyatın ne kadar yüksek olabileceğini değil, ne kadar düşük olmaması gerektiğini sorgula."</blockquote>
+<p><strong>1. Retrospektif rutini kur.</strong> Her kampanya, her proje, her çeyreğin ardından yapılandırılmış bir "ne öğrendik" seansı yap. Bu seans günah çıkarma toplantısı değil — öğrenme laboratuvarı.</p>
 
-<h2>3. Solo Kurucu Olmak Hem Güç Hem Zayıflık</h2>
+<p><strong>2. "Henüz" kelimesini kullan.</strong> "Bu konuyu bilmiyorum" değil, "Bu konuyu henüz bilmiyorum." Tek kelime. Büyük fark.</p>
 
-<p>Herkes bir co-founder bul der. Ben denemek istedim ama sonunda yalnız gittim. Pişman değilim — ama nedenleri anlamak önemli.</p>
+<p><strong>3. Çabayı değil, stratejiyi ödüllendir.</strong> "Çok çalıştın, aferin" demek sabit zihniyeti besler. "Bu yaklaşım işe yaradı, neden işe yaradığını anlayalım" demek büyüme zihniyetini besler.</p>
 
-<p>Yalnız kurucunun avantajları: hız, karar netliği, cap table basitliği, kendi vizyonunu uygulama özgürlüğü. Dezavantajları: yorgunluk, isolation, blind spot'lar ve zor günlerde seni zorlayacak kimsenin olmaması.</p>
+<img src="/images/blog-saas-inline-1.jpg" alt="Büyüme ve öğrenme" class="w-full rounded-lg my-8 aspect-video object-cover" />
 
-<p>Ben bunu bir haftalık bir mailing list, bir indie hackers topluluğu ve bir grup Slack ile dengeliyorum. Topluluk bazen co-founder'dan daha değerli.</p>
+<h2>Kariyer Gelişiminde Büyüme Zihniyeti</h2>
 
-<img src="/images/blog-saas-inline-2.jpg" alt="Çalışma alanı ve notlar" class="w-full rounded-lg my-8 aspect-video object-cover" />
+<p>Kariyerimde en önemli dönüm noktaları hep "bu konuda gerçekten iyi değilim" farkındalığından geldi. Bu itiraf zayıflık değil — büyümenin başlangıç noktası.</p>
 
-<h2>4. Pazarlama Yazmak, Kod Yazmak Kadar Zor</h2>
+<p>Uluslararası pazarlarda çalışmak bana şunu öğretti: farklı kültürler, farklı tüketici psikolojileri, farklı medya ortamları. Her yeni pazar bir büyüme zihniyeti egzersiziydi. "Türkiye'de işe yarayan burada çalışmaz" kabulüyle başlamak, her seferinde daha iyi stratejiler üretmemi sağladı.</p>
 
-<p>Ürünü yaparken "iyi bir şey yaparsam insanlar bulur" diye düşündüm. Bu "Build it and they will come" yanılgısının Türkçe versiyonuydu.</p>
+<h2>Sonuç: Sınırı Siz Koyuyorsunuz</h2>
 
-<p>Bugün haftamın en az üçte birini pazarlama içeriğine, topluluk katılımına ve SEO'ya harcıyorum. Ve bu harcama doğrudan büyümeye yansıyor. Teknik borçtan çok daha tehlikeli olan "pazarlama borcu" kavramını öğrendim.</p>
+<p>Potansiyelinizin sınırını başkaları değil, siz çiziyorsunuz. Ve iyi haber şu: o sınır sabit değil. Her gün, her deneyimle, her hatadan öğrenilenle biraz daha ileriye taşınıyor.</p>
 
-<p>En etkili kanalım şu an: Twitter/X üzerinde içerik ve bülten. Paid ads denedim, SEO denedim, Product Hunt launch yaptım — hepsinin belirli bir dönemde değeri var. Ama uzun vadede organik içerik ve topluluğu kazanıyor.</p>
-
-<h2>5. Churn Seni Öldürmez — Ne Öğrendiğin Kurtarır</h2>
-
-<p>Her churn acı verir. İlk büyük iptal geldiğinde — beni seven, harika feedback veren bir kullanıcıdan — neredeyse her şeyi bırakıyordum.</p>
-
-<p>Sonra şunu yaptım: her iptal eden kullanıcıya kişisel bir e-posta attım. Neden ayrıldıklarını sordum. Cevap verenlerden öğrendiklerim ürünü kurtardı.</p>
-
-<p>Churn bir istatistik değil. Her biri bir hikaye, bir öğrenme fırsatı. Bunu erken öğrenmek isterdim.</p>
-
-<h2>Bugün Tekrar Başlasaydım Ne Yapardım?</h2>
-
-<p>Önce topluluk kurar, sonra ürün yapardım. Bültenimi ürünü açmadan üç ay önce başlatırdım. Haftalık kullanıcı görüşmeleri için sabit zaman blokları ayarlardım. Ve ilk günden itibaren fiyatlamayı ciddiye alırdım.</p>
-
-<p>Sıfırdan SaaS kurmak bir maraton. Ama doğru kasları geliştirirsen, en az efor en büyük ilerlemeyi sağlıyor.</p>
+<p>Büyüme zihniyeti bir varış noktası değil, bir yolculuk tarzı.</p>
 
 <hr />
 
-<p>Sorularınız varsa <a href="mailto:merhaba@orkunaydin.com">bana yazın</a> ya da bültene abone olun — her Salı bu tür yazıları doğrudan gelen kutunuza gönderiyorum.</p>
+<p>Bu konuyu işinize veya ekibinize uygulamak için <a href="/#iletisim">benimle konuşabilirsiniz</a>.</p>
     `,
   },
   {
-    slug: "dikkat-ekonomisi-zamaninizi-geri-alin",
-    title: "Dikkat Ekonomisi: Zamanınızı ve Odağınızı Geri Almak",
+    slug: "pazarlama-stratejisi-dogru-insanin-dikkatini-kazanmak",
+    title: "Pazarlama Stratejisi: Doğru İnsanın Dikkatini Kazanmanın Sanatı",
     excerpt:
-      "Her sabah telefona uzandığınızda, o müdahale edilmemiş birkaç saatinizi zaten kaybetmişsinizdir. Dikkat ekonomisi, sizi gösteri için değil, itaat için inşa etti. İşte bu döngüyü kırmak için pratik bir çerçeve.",
-    date: "20 Şubat 2026",
-    readTime: 9,
-    tags: ["verimlilik", "odak", "teknoloji"],
+      "Herkese ulaşmaya çalışmak, kimseye ulaşamamak demektir. Gerçek pazarlama stratejisi bir hedefleme meselesi değil — doğru insanla doğru zamanda doğru rezonansı kurma sanatıdır.",
+    date: "20 Mart 2026",
+    readTime: 10,
+    tags: ["pazarlama", "strateji", "büyüme"],
     coverImage: "/images/blog-odak-cover.jpg",
     content: `
-<p>Her sabah telefona uzandığınızda, o müdahale edilmemiş birkaç saatinizi zaten kaybetmişsinizdir. Bu dramatik bir giriş değil — nörolojik bir gerçek. Uyku durumundan tam uyanıklığa geçişte beyin dopamin sistemine en hassas olduğu zamandadır ve siz tam bu anda en güçlü dikkat mühendislerinin tasarladığı bir ekrana bakıyorsunuzdur.</p>
+<p>Pazarlama kariyerimin başında bir direktörüm bana şunu söylemişti: "En iyi reklam, reklam gibi hissettirmeyen reklamdır." Yıllar sonra bu cümlenin ne kadar derin olduğunu anlıyorum.</p>
 
-<p>Bu yazı "sosyal medyayı bırak, kitap oku" türünden bir üretkenlik vaazı değil. Dikkat ekonomisini ve onun sizi nasıl kullandığını anladıktan sonra, bilinçli seçimler yapmanıza yardımcı olacak somut bir çerçeve.</p>
+<p>Bugün dikkat, tarihin en kıt kaynağı. Ortalama bir kullanıcı günde 6-8 saat ekranla geçiriyor ve bu sürenin büyük çoğunluğunda bilinçli dikkatini hiçbir şeye vermiyor. Scroll ediyor, geçiyor, unutuyor.</p>
 
-<h2>Dikkat Ekonomisi Nedir, Gerçekten?</h2>
+<p>Peki doğru dikkat nasıl kazanılır?</p>
 
-<p>1970'lerde ekonomist Herbert Simon şunu yazdı: "Zengin bilgi, fakir dikkat yaratır." Bilgi bollaştıkça dikkat kıtlaşır ve kıt olan şey değer kazanır. Bu, dikkatinizin gerçek bir ekonomik ürün haline gelmesi demek.</p>
+<h2>Hedef Kitle Değil, İdeal Müşteri</h2>
 
-<p>Günümüzün büyük teknoloji şirketlerinin iş modeli basit: dikkatinizi toplayıp reklamcılara satmak. Bu modelde siz müşteri değil, ürünsünüz. Ve bu ürünün değeri, ne kadar uzun süre ekranda tutulabileceğinizle ölçülür.</p>
+<p>"25-45 yaş arası, orta-üst gelir grubundaki kentli tüketiciler" — bu bir hedef kitle tanımı değil, bir istatistik. Kimseyle rezonans kurmaz.</p>
 
-<img src="/images/blog-odak-inline-1.jpg" alt="Dikkat ve odak kavramı" class="w-full rounded-lg my-8 aspect-video object-cover" />
+<p>Güçlü bir pazarlama stratejisi şu soruyu sorar: <strong>Bu ürünü veya hizmeti hayatını değiştireceğine gerçekten inanan tek bir insan kim?</strong></p>
 
-<h2>Sürekli Parçalanmış Dikkat Ne Yapar?</h2>
+<p>O insanın sabah kalktığında ne düşündüğünü, akşam uyurken ne endişelendiğini, hangi kelimelerle konuştuğunu anlarsanız — mesajınız zaten yazılmış olur.</p>
 
-<p>Araştırmalar açık: her kesintiden sonra tam konsantrasyona dönmek ortalama 23 dakika alıyor. Gün içinde ortalama 47 kez telefonu kontrol ediyorsak, matematiksel olarak derin çalışma için neredeyse sıfır zamanımız kalıyor.</p>
+<img src="/images/blog-odak-inline-1.jpg" alt="Pazarlama stratejisi" class="w-full rounded-lg my-8 aspect-video object-cover" />
 
-<p>Daha derin sorun ise şu: sürekli bildirim döngüsünde çalışan beyin, dikkat kasını köreltiyor. Uzun ve sıkıcı bir fikre odaklanma kapasitesi — ki bu, yaratıcılığın ve gerçek öğrenmenin temeli — zamanla eriyor.</p>
+<h2>Konumlandırma: Zihinlerde Bir Köşe</h2>
 
-<blockquote>"Derin işin aksine sığ işi herkes yapabilir. Derin iş, rekabet edilemeyen bir avantajdır." — Cal Newport</blockquote>
+<p>Al Ries ve Jack Trout'un klasiği "Positioning" bugün hâlâ geçerli. Marka savaşları piyasada değil, zihinlerde kazanılır.</p>
 
-<h2>Pratik Çerçeve: Üç Katmanlı Dikkat Hijyeni</h2>
+<p>Google'da Avrupa pazarlarında çalışırken gördüm: en başarılı kampanyalar en yüksek bütçeli olanlar değil, en net konumlandırılmış olanlardı. Kullanıcı tek bir şeyi hatırlıyor — o tek şeyi doğru seçmek tüm işin özü.</p>
 
-<h3>Katman 1: Ortam Mimarisi</h3>
+<p>Etkili konumlandırma için üç bileşen:</p>
 
-<p>Davranış değişikliği motivasyonla değil, çevresel tasarımla başlar. Motivasyona güvenmek, direnç kasını sürekli yorar. Çevreyi değiştirirseniz direnci harcamanıza gerek kalmaz.</p>
+<p><strong>1. Kategori:</strong> Hangi zihin kategorisinde var olmak istiyorsunuz? (Lüks EV? Sağlıklı atıştırmalık? Uzaktan takım yönetimi?)</p>
 
-<p>Pratikte ne demek? Telefonunuzu yatak odasına götürmeyin. Bilgisayar masanızda telefon bulundurmayın. Sosyal medya uygulamalarını ana ekrandan kaldırın (silmeyin — başka sayfaya taşıyın). Bu küçük sürtünmeler, otomatik davranışı kırar.</p>
+<p><strong>2. Fark:</strong> O kategoride neden sizsiniz, rakibiniz değil?</p>
 
-<h3>Katman 2: Zaman Bloklama</h3>
+<p><strong>3. Kanıt:</strong> Bu farkı hangi somut veriler, referanslar veya deneyimler destekliyor?</p>
 
-<p>Derin çalışma için "var olduğunda yapacağım" stratejisi işe yaramaz. Takvime girmeyen şey olmaz. Ben haftamı üç tür blokla yapılandırıyorum:</p>
+<blockquote>"Strateji neyi yapmayacağınıza karar vermektir." — Michael Porter</blockquote>
 
-<p><strong>Derin çalışma blokları (2-3 saat):</strong> Sabah 7-10 arası, hiç bildirim yok, tek bir proje, tam konsantrasyon. Bu bloklar kutsal; toplantı, Slack, e-posta yok.</p>
+<h2>İçerik Stratejisi: Değer Önce, Satış Sonra</h2>
 
-<p><strong>İletişim blokları (45 dakika):</strong> Öğle ve akşam üstü. Tüm e-postalar, Slack mesajları, yanıtlar bu bloklarda.</p>
+<p>En iyi pazarlama içeriği sorun çözer. Ürün satmaz — önce güven inşa eder, sonra satış kendiliğinden gelir.</p>
 
-<p><strong>Sığ çalışma blokları:</strong> Geri kalan her şey. Rutin görevler, admin işleri, araştırma.</p>
+<p>Bu içeriği okuyorsanız, bunu zaten yaşıyorsunuzdur. Ben size "hizmetlerimi satın alın" demedim. Ama bu yazının sonunda, eğer pazarlama stratejinizle ilgili bir sorunuz varsa, bana ulaşmayı düşünebilirsiniz. İşte bu, içerik stratejisinin özü.</p>
 
-<h3>Katman 3: Dijital Kapanış Ritüeli</h3>
+<h2>Ölçme: Ne Ölçtüğünüzü Bilmeden Büyüyemezsiniz</h2>
 
-<p>En gözardı edilen ama belki de en önemli katman bu. Her iş günü sona erdiğinde bilinçli bir kapanış ritüeli yapmak iki şey sağlar: tamamlanmamış döngüleri kapatır (beyin bunları gece de işlemeye devam eder) ve "iş modundan" çıkışı netleştirir.</p>
+<p>Büyük şirketlerde çalışmanın en büyük avantajı: veri kültürü. Her karar bir hipotez, her kampanya bir deney, her sonuç bir öğrenme.</p>
 
-<p>Benim ritüelim: yapılacaklar listesini gözden geçir, yarın için tek öncelik yaz, tarayıcı sekmelerini kapat, bilgisayarı kapat. Sonra 20 dakika yürüyüş — telefonsuz.</p>
-
-<img src="/images/blog-odak-inline-2.jpg" alt="Sabah rutin çalışma alanı" class="w-full rounded-lg my-8 aspect-video object-cover" />
-
-<h2>Teknoloji Düşmanınız Değil</h2>
-
-<p>Bu yazıyı okuyarak "teknoloji karşıtı" bir sonuca varmayın. Dikkat ekonomisine karşı savaşmıyoruz — onun kurallarını anlayıp kendi lehimize kullanıyoruz.</p>
-
-<p>Benim için Twitter yaratıcı düşünce için bir laboratuvar. Podcasts uzun yürüyüşlerde beyin için gıda. YouTube teknik öğrenme için eşsiz. Mesele araçları reddetmek değil, onları biz mi kullanıyoruz yoksa onlar mı bizi kullanıyor, onu belirlemek.</p>
-
-<h2>Bir Haftalık Deney</h2>
-
-<p>Teorileri bir kenara bırakın. Şu hafta için tek bir şey deneyin: sabah ilk 60 dakikayı telefonunuza dokunmadan geçirin. Haberlere, sosyal medyaya, e-postaya bakmayın. Sadece 60 dakika.</p>
-
-<p>Bu 60 dakikada ne yaptığınız önemli değil — çay iç, yürü, düşün, defter yaz. Sadece pasif tüketimden uzak durun.</p>
-
-<p>Bir hafta sonra ne hissettiğinizi bana yazın. Tahminim şu: sabahlarınız farklı görünmeye başlayacak.</p>
+<p>Küçük işletmeler için de aynı disiplin mümkün. Hangi metriği optimize ediyorsunuz? Trafik mi, dönüşüm mü, müşteri yaşam boyu değeri mi? Bu soruya net cevap vermeden başlayan her strateji, fırtınada rotasız bir gemi gibidir.</p>
 
 <hr />
 
-<p>Bu yazı benim haftanın her Salısı gönderdiğim <a href="#iletisim">Dijital Pusulam bülteninin</a> bir özetidir. Daha uzun versiyonu ve ek kaynaklar için abone olun.</p>
+<p>Pazarlama stratejinizi netleştirmek veya sıfırdan kurmak istiyorsanız <a href="/#iletisim">danışmanlık seansı ayarlayabiliriz</a>.</p>
     `,
   },
   {
-    slug: "turkiyeden-kuresel-dijital-is-kurmak",
-    title: "Türkiye'den Küresel Bir Dijital İş Kurmak",
+    slug: "sanat-bana-strateji-ogretti",
+    title: "Sanat Bana Strateji Öğretti",
     excerpt:
-      "İstanbul'dan San Francisco'ya ya da Berlin'e uçmak zorunda değilsiniz. Coğrafya artık kader değil. Ama bu serbestlik beraberinde kendine has zorluklar getiriyor — dil engeli, güven inşası, ödeme altyapısı ve kültürel nüanslar. İşte bunların üstesinden nasıl geldiğimi anlattım.",
-    date: "10 Ocak 2026",
-    readTime: 15,
-    tags: ["uzaktan çalışma", "girişimcilik", "strateji"],
+      "Bir tablonun kompozisyonu ile bir pazarlama kampanyasının yapısı arasında düşündüğünüzden çok daha fazla ortak nokta var. Yaratıcı düşünce ile stratejik zeka birbirinin rakibi değil — tamamlayıcısı.",
+    date: "15 Şubat 2026",
+    readTime: 7,
+    tags: ["sanat", "felsefe", "strateji"],
     coverImage: "/images/blog-global-cover.jpg",
     content: `
-<p>İstanbul'dan San Francisco'ya ya da Berlin'e uçmak zorunda değilsiniz. Coğrafya artık kader değil. Bu cümleyi ilk duyduğumda inanmak istedim ama inanmakta zorlandım. 2022 yılında ilk uluslararası müşterime fatura gönderdiğimde — bir Alman girişimine, Türk lirası değil dolar ile — gerçekten inandım.</p>
+<p>Müze gezmek benim için tatil değil, araştırma. Bir Rothko tablosunun önünde dururken sadece renkleri görmüyorum — duygusal rezonans mimarisini inceliyorum. Nasıl bu kadar az şeyle bu kadar çok şey anlatılabiliyor?</p>
 
-<p>Bu yazı bir motivasyon konuşması değil. Türkiye'den küresel bir dijital iş kurarken yaşadığım gerçek zorluklara ve çözümlere dair somut bir rehber.</p>
+<p>Bu soru pazarlamada da geçerli. Nasıl bu kadar az kelimeyle bu kadar derin bir bağ kurulabiliyor?</p>
 
-<h2>Neden Küresel?</h2>
+<h2>Kompozisyon: Neyi Çıkardığınız Kadar Önemli</h2>
 
-<p>Türkiye'de sadece yerel pazara hizmet etmenin cazip argümanları var: dili biliyorsunuz, kültürü biliyorsunuz, ağınız burada. Ama bazı yapısal gerçekler görmezden gelinemez:</p>
+<p>Büyük sanatçıların ortak özelliği sadece neyi ekledikleri değil — neyi çıkardıklarıdır. Michelangelo mermerden heykelini çıkarmadığını, fazlalığı attığını söylerdi.</p>
 
-<p>Birincisi, Türk lirası değer kaybıyla birlikte TL cinsinden fiyatlandırılan bir iş sürekli yeniden fiyatlandırma stresi yaratıyor. Dolar ya da euro cinsinden gelir bu stresi ortadan kaldırıyor.</p>
+<p>Stratejide de aynı ilke geçerli. En iyi strateji çoğu zaman en uzun strateji değil. Ne yapacağınıza değil, ne yapmayacağınıza karar vermek — bu ayrım büyük şirketleri küçüklerden, başarılı kampanyaları başarısızlardan ayırıyor.</p>
 
-<p>İkincisi, dijital ürünler için pazar büyüklüğü açısından küresel müşteri havuzu karşılaştırma yapılmayacak kadar büyük. Niche bir SaaS ürünü bile küresel pazarda yeterli müşteri bulabiliyor.</p>
+<p>Google'da öğrendiğim en değerli ders: büyük bütçeler sizi her şeyi yapma özgürlüğüne değil, en doğru şeyi yapma sorumluluğuna itiyor.</p>
 
-<p>Üçüncüsü, küresel markalar Türkiye'den çok daha iyi nasıl kurulur sorusu, 2020'lerden itibaren yanıtlanmış durumda. Stripe, Wise, Lemon Squeezy ve benzeri araçlar bu yolu gerçekten kolaylaştırdı.</p>
+<img src="/images/blog-global-inline-1.jpg" alt="Sanat ve strateji" class="w-full rounded-lg my-8 aspect-video object-cover" />
 
-<img src="/images/blog-global-inline-1.jpg" alt="İstanbul şehir manzarası" class="w-full rounded-lg my-8 aspect-video object-cover" />
+<h2>Estetik Zeka: Gözardı Edilen Rekabet Avantajı</h2>
 
-<h2>Zorluk 1: Dil ve İçerik</h2>
+<p>İş dünyası estetik zekayı hâlâ "yumuşak beceri" olarak görüyor. Yanlış. Estetik zeka şunu sorar: bu, doğru mu hissettiriyor? Bu soru kalite kontrol, kullanıcı deneyimi, marka tutarlılığı ve müşteri bağlılığı için kritik.</p>
 
-<p>İngilizce içerik üretmek çoğu Türk girişimcinin en büyük engellerinden biri. Ama burada gerçekçi olalım: mükemmel İngilizce gerekmez. "Yeterince iyi" İngilizce yeterli.</p>
+<p>Müzik dinlemek bana ritim ve yapı öğretti. İyi bir şarkıda her enstrüman bir role sahip. Fazlası gürültü, eksiği boşluk. Aynısı bir kurumun iletişim stratejisi için de geçerli.</p>
 
-<p>Benim yaklaşımım şu: Türkçe düşün, İngilizce yaz, sonra İngilizce konuşana gözden geçirt. Bu üç adım, düşünce kalitesini korurken dil engelini aşıyor.</p>
+<blockquote>"Estetik, yüzeyin altındaki derinliği görme kapasitesidir."</blockquote>
 
-<p>Daha da pratik bir yol: içerik üretimini müşteri dilinde değil, problem dilinde yapın. "Dağıtık ekiplerde koordinasyon problemi" hem İstanbul'daki hem de Stockholm'deki bir yöneticinin aynı şekilde arama yaptığı bir kavram.</p>
+<h2>Felsefe: Neden Sorusu Her Şeyin Başlangıcı</h2>
 
-<h2>Zorluk 2: Güven İnşası</h2>
+<p>Felsefe okumak pratik görünmez. Ama benim için en pratik entelektüel egzersiz. Nietzsche'nin "neden" üzerine yazdıkları, Simon Sinek'in "Golden Circle" kavramından çok önce aynı şeyi söylüyordu: insanlar ne yaptığınıza değil, neden yaptığınıza inanır.</p>
 
-<p>"Türkiye'den mi?" tepkisiyle karşılaştım mı? Evet. Bu tepkiyle başa çıkmanın yolu onu inkâr etmek değil — aksine coğrafyanın sizi nasıl daha değerli kıldığını anlatmak.</p>
+<p>Marka stratejisi danışmanlığında ilk sorduğum soru hep aynı: "Bu şirketi neden kurduğunuzu, o ilk gün, size anlatın." Cevabın içinde strateji gizli. Pazarlamacı değil, arkeolog gibi çalışmak bazen.</p>
 
-<p>Türkiye, hem Doğu hem Batı perspektifine sahip, hem gelişmiş pazar hem de gelişen pazar dinamiklerini anlayan bir coğrafyada bulunuyor. Bu çift perspektif pek çok global müşteri için gerçek bir avantaj.</p>
+<h2>Yaratıcılık Bir Yetenek Değil, Bir Pratik</h2>
 
-<p>Güven inşasında en etkili bulduğum araçlar:</p>
+<p>Müze gezmek, müzik dinlemek, roman okumak — bunları zaman kaybı olarak görenlere katılmıyorum. Bu aktiviteler zihnin farklı kaslarını çalıştırıyor. O kaslar iş yerinde fark yaratıyor.</p>
 
-<p><strong>Case study'ler:</strong> İlk müşterilerinizle kâr gözetmeden çalışın, sonuçlarını ölçün, yazıya dökün. Bir gerçek sonuç, on referanstan değerli.</p>
-
-<p><strong>Açık iletişim:</strong> Nereden çalıştığınızı, hangi zaman diliminde olduğunuzu, nasıl ulaşılabileceğinizi net belirtin. Şeffaflık güven üretir.</p>
-
-<p><strong>Sosyal kanıt:</strong> LinkedIn profiliniz, Twitter varlığınız ve müşteri yorumlarınız dijital imzanız. Bunlara yatırım yapın.</p>
-
-<blockquote>"Nereden çalıştığınız değil, nasıl çalıştığınız önemli. Ama 'nasıl'ı kanıtlayana kadar 'nerede' sizi yargılar." — Kendi deneyimim</blockquote>
-
-<h2>Zorluk 3: Ödeme Altyapısı</h2>
-
-<p>Bu teknik ama kritik. Türkiye'den uluslararası ödeme almanın birkaç pratik yolu var:</p>
-
-<p><strong>Stripe (Türk şirketi için):</strong> Türkiye'de Stripe kullanmak mümkün — ancak yabancı bir şirket kurmak (genellikle ABD veya Estonya) daha az sürtünme yaratıyor. Delaware LLC ya da Estonian e-Residency popüler seçenekler.</p>
-
-<p><strong>Wise Business:</strong> Çok dövizli hesap, uluslararası transfer için mükemmel. Türk vergi numarası ile açılabiliyor.</p>
-
-<p><strong>Lemon Squeezy / Paddle:</strong> SaaS için Merchant of Record hizmetleri. Siz KDV ve diğer vergi yükümlülükleriyle uğraşmıyorsunuz — onlar hallediyor.</p>
-
-<img src="/images/blog-global-inline-2.jpg" alt="Dijital iş kurma araçları" class="w-full rounded-lg my-8 aspect-video object-cover" />
-
-<h2>Zorluk 4: Zaman Dilimi ve Senkronizasyon</h2>
-
-<p>İstanbul UTC+3'tedir. ABD Doğu Kıyısı ile 7-8, Batı Kıyısı ile 10-11 saat fark var. Avrupa ile ise 1-2 saat fark — bu aslında çalışmak için ideal.</p>
-
-<p>Ben Avrupa ağırlıklı müşterilerle çalışmayı tercih ediyorum kısmen bu yüzden. Asenkron iletişimi norm haline getirmek ve toplantıları minimize etmek ise uzak müşterilerin takdirini kazanıyor.</p>
-
-<p>Pratik bir kural: her müşteri e-postasına 24 iş saati içinde yanıt garantisi verin. Bu, saat dilimi farkını sihirli şekilde önemsizleştirir.</p>
-
-<h2>Başlamak İçin Çerçeve</h2>
-
-<p>Küresel bir dijital iş kurmak istiyorsanız şu sırayı öneririm:</p>
-
-<p>Önce niche'inizi belirleyin. "Dünyaya çalışacağım" değil — "uzaktan çalışma araçlarına danışmanlık yapan B2B SaaS şirketlerine çalışacağım" deyin. Niche ne kadar dar olursa bulunmak o kadar kolay olur.</p>
-
-<p>Sonra küçük bir toplulukta görünür olun. Reddit, Indie Hackers, bir sektör Discord'u — nerede olursa olsun düzenli, değerli katkılar yapın. Müşterilerim büyük çoğunluğu bu topluluk katılımından geldi.</p>
-
-<p>İlk müşteri için fiyatı düşürün — ama bedava vermeyin. İlk müşteri vakaya dönüşür ve vaka, ilerideki tüm müşteri kanallarını besler.</p>
-
-<h2>Sonuç: Coğrafya Bir Engel Değil, Bir Hikaye</h2>
-
-<p>İstanbul'dan çalıştığımı müşterilerime söylediğimde artık savunma pozisyonuna geçmiyorum. Aksine: iki kıtanın kesişiminde, Doğu ve Batı perspektiflerini bir arada getiren birinin bakış açısını sunuyorum.</p>
-
-<p>Bu hikaye. Ve iyi hikayeler, iyi işler kurar.</p>
+<p>En iyi strateji toplantılarım çoğunlukla bir sanat müzesi sonrasına denk gelir. Tesadüf değil.</p>
 
 <hr />
 
-<p>Küresel iş kurma sürecinizde takıldığınız somut bir nokta varsa <a href="mailto:merhaba@orkunaydin.com">bana yazın</a>. Mümkün olan her mesaja yanıt veriyorum.</p>
+<p>Yaratıcı düşünce ile stratejik zekayı işinizde nasıl birleştireceğinizi konuşmak ister misiniz? <a href="/#iletisim">Yazın</a>.</p>
     `,
   },
 ];

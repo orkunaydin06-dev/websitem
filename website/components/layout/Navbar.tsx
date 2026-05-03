@@ -8,9 +8,9 @@ import { EASE } from "@/lib/motion";
 
 const navLinks = [
   { label: "Hakkımda", href: "/#hakkimda" },
-  { label: "Projeler", href: "/#projeler" },
+  { label: "Danışmanlık", href: "/#danismanlik" },
+  { label: "Koçluk", href: "/#kocluk" },
   { label: "Blog", href: "/blog" },
-  { label: "Konuşmalar", href: "/#konusmalar" },
   { label: "İletişim", href: "/#iletisim" },
 ];
 
