@@ -44,3 +44,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Ham fotoğraflar ve kaydedilmiş sayfalar (optimize edilmiş kopyalar public/photos altında)
+/public/images/*.jpeg
+/public/images/Instagram*

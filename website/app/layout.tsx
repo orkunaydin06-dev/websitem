@@ -1,59 +1,56 @@
 import type { Metadata } from "next";
-import { Cormorant_Garamond, Outfit } from "next/font/google";
+import { Fraunces, Inter } from "next/font/google";
 import "./globals.css";
+import { nav, seo } from "@/content/site";
+import { isEnabled } from "@/content/flags";
+import { Header } from "@/components/Header";
+import { Footer } from "@/components/Footer";
 
-const cormorant = Cormorant_Garamond({
-  variable: "--font-cormorant",
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
+// latin-ext: ş ğ ı İ ç ö ü için gerekli
+const fraunces = Fraunces({
+  variable: "--font-fraunces",
+  subsets: ["latin", "latin-ext"],
   style: ["normal", "italic"],
+  axes: ["opsz", "SOFT", "WONK"],
   display: "swap",
 });
 
-const outfit = Outfit({
-  variable: "--font-outfit",
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600"],
+const inter = Inter({
+  variable: "--font-inter",
+  subsets: ["latin", "latin-ext"],
   display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: {
-    default: "Orkun Aydın — Marka ve Büyüme Stratejisti",
-    template: "%s — Orkun Aydın",
-  },
-  description:
-    "Coca-Cola, Unilever, L'Oréal ve Google deneyimiyle markalar için büyüme stratejisi; profesyoneller için kişisel marka, kariyer koçluğu ve AI eğitimi.",
-  keywords: [
-    "marka stratejisi",
-    "büyüme stratejisi",
-    "marka danışmanlığı",
-    "kişisel marka",
-    "kariyer koçluğu",
-    "AI eğitimi",
-    "Orkun Aydın",
-  ],
+  metadataBase: new URL(seo.siteUrl),
+  title: { default: seo.defaultTitle, template: seo.titleTemplate },
+  description: seo.description,
+  keywords: seo.keywords,
   openGraph: {
-    title: "Orkun Aydın — Markalaşmanın sanatı. Büyümenin mimarisi.",
-    description:
-      "Coca-Cola, Unilever, L'Oréal ve Google deneyimiyle markalar için büyüme stratejisi; profesyoneller için kişisel marka, kariyer koçluğu ve AI eğitimi.",
+    title: seo.ogTitle,
+    description: seo.description,
     type: "website",
     locale: "tr_TR",
+    siteName: "Orkun Aydın",
   },
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+  const links = nav.filter((l) => isEnabled(l.flag)).map(({ label, href }) => ({ label, href }));
   return (
-    <html
-      lang="tr"
-      className={`${cormorant.variable} ${outfit.variable} grain-overlay`}
-    >
-      <body className="min-h-screen bg-bg text-ink antialiased">
-        {children}
+    <html lang="tr" className={`${fraunces.variable} ${inter.variable}`}>
+      <body className="flex min-h-screen flex-col">
+        <a
+          href="#icerik"
+          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded-md focus:bg-moss focus:px-4 focus:py-2 focus:text-paper"
+        >
+          İçeriğe geç
+        </a>
+        <Header links={links} />
+        <main id="icerik" className="flex-1">
+          {children}
+        </main>
+        <Footer />
       </body>
     </html>
   );

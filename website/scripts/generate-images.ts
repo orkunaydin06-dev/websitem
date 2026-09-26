@@ -1,172 +1,99 @@
+// Fikirler yazıları için görselleri fal.ai (Flux) ile üretir ve public/images/fikirler/ altına kaydeder.
+// Kullanım: npm run generate-images            → eksik görselleri üretir
+//           npm run generate-images -- --force  → hepsini yeniden üretir
+//           npm run generate-images -- <slug>   → yalnızca o yazının görsellerini üretir
 import { fal } from "@fal-ai/client";
-import fs from "fs";
-import path from "path";
+import fs from "node:fs";
+import path from "node:path";
 import { config } from "dotenv";
 
 config({ path: path.join(process.cwd(), ".env.local") });
 
-const FAL_KEY = process.env.FAL_KEY;
-if (!FAL_KEY) {
-  console.error("FAL_KEY environment variable not set in .env.local");
+if (!process.env.FAL_KEY) {
+  console.error("FAL_KEY bulunamadı. .env.local dosyasına ekleyin.");
   process.exit(1);
 }
+fal.config({ credentials: process.env.FAL_KEY });
 
-fal.config({ credentials: FAL_KEY });
+const MODEL = "fal-ai/flux/dev";
+const OUT = path.join(process.cwd(), "public/images/fikirler");
 
-const OUTPUT_DIR = path.join(process.cwd(), "public", "images");
-fs.mkdirSync(OUTPUT_DIR, { recursive: true });
+// Ortak sanat yönetimi: sitenin krem-yosun paletiyle uyumlu editoryal natürmort.
+const STYLE =
+  "Editorial still-life photograph for a thoughtful strategy essay. Warm cream paper and linen tones (#F6F1E9, #EDE6DA), a single deep moss green accent (#2F4A3A), soft natural window light from the left, gentle shadows, shallow depth of field, subtle 35mm film grain, calm and minimal composition with generous negative space. No people, no hands, no text, no letters, no logos.";
 
-type FluxDevOutput = {
-  images: Array<{ url: string; width: number; height: number; content_type: string }>;
-  timings: Record<string, number>;
-  seed: number;
-  has_nsfw_concepts: boolean[];
-  prompt: string;
-};
+type Job = { file: string; prompt: string; size: "landscape_16_9" | "landscape_4_3" };
 
-const images: Array<{
-  filename: string;
-  prompt: string;
-  size: "landscape_16_9" | "portrait_4_3" | "square_hd";
-  steps?: number;
-}> = [
+const jobs: Job[] = [
   {
-    filename: "hero-bg.jpg",
+    file: "buyume-zihniyeti-potansiyelinizin-sinirini-kim-koyuyor.jpg",
     prompt:
-      "Dramatic twilight panorama of Istanbul skyline seen from a hilltop, the Bosphorus Bridge glowing in warm amber and copper light, minarets silhouetted against a deep indigo sky with scattered gold clouds. Cinematic editorial photography, long exposure light trails on the bridge, ultra-wide angle, rich warm tones, sophisticated and timeless atmosphere.",
+      "A small olive sapling with fresh green leaves growing from a crack in a cream plaster wall, beside a pencil line drawn on the wall marking its height like a child's growth chart.",
     size: "landscape_16_9",
-    steps: 30,
   },
   {
-    filename: "about-portrait.jpg",
+    file: "buyume-zihniyeti-potansiyelinizin-sinirini-kim-koyuyor-2.jpg",
     prompt:
-      "Professional editorial portrait of a young Turkish man in his late 20s, seated at a minimal modern desk with an open notebook and a MacBook. Warm, directional golden hour window light from the left. Shallow depth of field, bokeh background showing bookshelves. Thoughtful, confident expression. Editorial photography style, warm amber and charcoal tones, sophisticated and intellectual atmosphere.",
-    size: "portrait_4_3",
-    steps: 30,
+      "An open notebook on a linen tablecloth with a hand-drawn ascending staircase sketch in graphite, a sharpened pencil and a moss green ceramic cup.",
+    size: "landscape_16_9",
   },
   {
-    filename: "blog-saas-cover.jpg",
+    file: "pazarlama-stratejisi-dogru-insanin-dikkatini-kazanmak.jpg",
     prompt:
-      "Abstract visualization of software architecture: glowing amber and gold wireframe nodes connected by luminous threads against a deep dark background. Circuit-like geometric patterns, data flows visualized as streams of light. Editorial tech photography style, warm gold accents on near-black background, sophisticated and modern. High detail, dramatic lighting.",
+      "Rows of identical matte cream ceramic spheres on a cream table; only a single one of them, slightly apart, is deep moss green and caught in a narrow beam of warm light. Every other sphere is cream.",
     size: "landscape_16_9",
-    steps: 28,
   },
   {
-    filename: "blog-saas-inline-1.jpg",
+    file: "pazarlama-stratejisi-dogru-insanin-dikkatini-kazanmak-2.jpg",
     prompt:
-      "Close-up of handwritten notes on cream-colored paper, filled with diagrams, arrows, and user journey maps for a software product. A pencil and vintage ruler rest beside the notes. Warm overhead light, editorial photography, shallow depth of field, warm tones.",
+      "A brass tuning fork resting on thick cream paper next to a single sprig of dark green eucalyptus, quiet resonance, precise arrangement.",
     size: "landscape_16_9",
-    steps: 25,
   },
   {
-    filename: "blog-saas-inline-2.jpg",
+    file: "sanat-bana-strateji-ogretti.jpg",
     prompt:
-      "Minimalist workspace at dusk: a laptop screen glowing amber in a dimly lit room, a ceramic mug of tea, an open notebook with a single handwritten insight. Dark ambient mood, warm accent lighting, editorial still life photography, sophisticated and contemplative.",
+      "Overhead flat lay on linen: a painter's wooden palette with moss green and cream oil paint, a clean brush, an architect's brass compass and a steel ruler arranged in a precise composition, art meeting structure. Objects only, nobody in frame.",
     size: "landscape_16_9",
-    steps: 25,
   },
   {
-    filename: "blog-odak-cover.jpg",
+    file: "sanat-bana-strateji-ogretti-2.jpg",
     prompt:
-      "A single focused beam of warm golden light cutting through a dark room, illuminating an open book and a steaming cup of coffee on a dark wooden desk. Deep dramatic shadows, high contrast, minimalist composition. Editorial photography style, warm amber tones on deep black background, meditative and focused atmosphere.",
+      "A minimalist abstract canvas with a single deep green color field leaning against a cream wall in a quiet gallery, soft daylight, Rothko-like calm.",
     size: "landscape_16_9",
-    steps: 28,
-  },
-  {
-    filename: "blog-odak-inline-1.jpg",
-    prompt:
-      "Conceptual photograph of an hourglass with golden sand, placed on a dark surface. Soft, dramatic side lighting creates long warm shadows. Background is blurred bookshelves. Minimalist editorial still life, warm amber tones, sharp focus on the hourglass, meditative atmosphere.",
-    size: "landscape_16_9",
-    steps: 25,
-  },
-  {
-    filename: "blog-odak-inline-2.jpg",
-    prompt:
-      "Early morning workspace with a clear desk, warm sunrise light streaming through a window. A journal open to a blank page, a single pen, and a glass of water. Clean, minimal, focused. Editorial photography, warm golden tones, soft shadows, peaceful and productive atmosphere.",
-    size: "landscape_16_9",
-    steps: 25,
-  },
-  {
-    filename: "blog-global-cover.jpg",
-    prompt:
-      "Breathtaking aerial view of Istanbul's Golden Horn at sunset, warm golden hour light painting the historic peninsula in amber and sienna. The Galata Tower visible, boats on the water leaving white trails. Editorial travel photography, cinematic wide angle, rich warm colors, historical grandeur meets modern city.",
-    size: "landscape_16_9",
-    steps: 30,
-  },
-  {
-    filename: "blog-global-inline-1.jpg",
-    prompt:
-      "Vintage map of Istanbul and the Bosphorus waterway, partially unrolled on a dark mahogany table, with a compass, a fountain pen, and scattered architectural sketches. Warm candlelight effect, deep shadows, editorial flat lay photography, warm amber tones.",
-    size: "landscape_16_9",
-    steps: 25,
-  },
-  {
-    filename: "blog-global-inline-2.jpg",
-    prompt:
-      "Multiple laptop screens and devices showing global maps, currency charts, and communication tools. Dark productivity setup, warm accent lighting, editorial tech photography. Multiple screens showing world maps and digital tools, sophisticated remote work aesthetic.",
-    size: "landscape_16_9",
-    steps: 25,
   },
 ];
 
-async function downloadImage(url: string, filename: string): Promise<void> {
-  console.log(`  Downloading: ${filename}...`);
-  const res = await fetch(url);
-  if (!res.ok) throw new Error(`Failed to fetch image: ${res.statusText}`);
-  const buffer = await res.arrayBuffer();
-  const outputPath = path.join(OUTPUT_DIR, filename);
-  fs.writeFileSync(outputPath, Buffer.from(buffer));
-  console.log(`  Saved: ${outputPath}`);
-}
-
-async function generateImage(item: (typeof images)[0]): Promise<void> {
-  console.log(`\nGenerating: ${item.filename}`);
-  console.log(`  Prompt: ${item.prompt.slice(0, 80)}...`);
-
-  const result = await fal.subscribe("fal-ai/flux/dev", {
+async function run(job: Job) {
+  const target = path.join(OUT, job.file);
+  const result = await fal.subscribe(MODEL, {
     input: {
-      prompt: item.prompt,
-      image_size: item.size,
-      num_inference_steps: item.steps ?? 28,
+      prompt: `${job.prompt} ${STYLE}`,
+      image_size: job.size,
+      num_inference_steps: 32,
       guidance_scale: 3.5,
       num_images: 1,
       enable_safety_checker: true,
     },
   });
-
-  const output = result.data as FluxDevOutput;
-  if (!output.images?.length) {
-    throw new Error(`No images returned for ${item.filename}`);
-  }
-
-  await downloadImage(output.images[0].url, item.filename);
+  const url = (result.data as { images: { url: string }[] }).images[0].url;
+  const res = await fetch(url);
+  if (!res.ok) throw new Error(`İndirilemedi: ${res.status}`);
+  fs.writeFileSync(target, Buffer.from(await res.arrayBuffer()));
+  console.log(`✓ ${job.file}`);
 }
 
 async function main() {
-  console.log("Starting image generation...\n");
-  console.log(`Generating ${images.length} images to: ${OUTPUT_DIR}\n`);
+  const args = process.argv.slice(2);
+  const force = args.includes("--force");
+  const only = args.find((a) => !a.startsWith("--"));
+  fs.mkdirSync(OUT, { recursive: true });
 
-  const failed: string[] = [];
-
-  for (const image of images) {
-    try {
-      await generateImage(image);
-    } catch (err) {
-      console.error(`  ERROR generating ${image.filename}:`, err);
-      failed.push(image.filename);
-    }
-  }
-
-  console.log("\n--- Generation Complete ---");
-  console.log(`✓ Success: ${images.length - failed.length}/${images.length}`);
-  if (failed.length > 0) {
-    console.log(`✗ Failed: ${failed.join(", ")}`);
-    process.exit(1);
-  } else {
-    console.log(
-      "\nAll images saved to /public/images/ — commit them to the repo."
-    );
-  }
+  const todo = jobs.filter(
+    (j) => (!only || j.file.startsWith(only)) && (force || !fs.existsSync(path.join(OUT, j.file)))
+  );
+  if (todo.length === 0) return console.log("Üretilecek görsel yok.");
+  console.log(`${todo.length} görsel üretiliyor (${MODEL})…`);
+  await Promise.all(todo.map((j) => run(j).catch((e) => console.error(`✗ ${j.file}: ${e.message}`))));
 }
 
 main();

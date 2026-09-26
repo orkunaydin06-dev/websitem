@@ -23,13 +23,17 @@ Metin değişikliği yalnızca `content/` klasörüne dokunmalı, bileşenlere d
 - `content/site.ts` — sayfa metinleri, hizmetler, zaman çizelgesi, rakamlar, linkler, SEO alanları
 - `content/fikirler/*.mdx` — yazılar (frontmatter: başlık, tarih, kategori, özet)
 - `content/flags.ts` — özellik bayrakları: `aracKutusu`, `muzik` (varsayılan `false`, tek değerle açılır)
-- Fotoğraflar `public/photos/` (`portre.jpg`, `calisirken.jpg`, `sahne.jpg`), logolar `public/logos/*.svg`. (Brief'teki `assets/` yerine: Next.js statik dosyaları `public/` altından sunar.) Dosya yoksa placeholder / metin logosu göster; build asla kırılmasın.
+- Fotoğraflar `public/photos/` (`portre.jpg` hero, `hakkimda.jpg`, `calisirken.jpg`, `sahne.jpg`), logolar `public/logos/*.svg`. (Brief'teki `assets/` yerine: Next.js statik dosyaları `public/` altından sunar.) Dosya yoksa `Photo` yer tutucu, `LogoStrip` metin logosu gösterir; build asla kırılmaz.
+- Yazı görselleri `public/images/fikirler/<slug>.jpg` (kapak) ve `<slug>-2.jpg` (yazı içi). `npm run generate-images` fal.ai ile eksikleri üretir; sanat yönetimi `scripts/generate-images.ts` içindeki `STYLE`. İnsan, el, yazı, logo üretme. Orkun'un portresini asla AI ile üretme.
+- Okuma süresi kelime sayısından hesaplanır (`lib/posts.ts`), elle yazılmaz.
 
-> Geçiş notu: Faz 3'e kadar içerik hâlâ `lib/data.ts` ve `lib/blog-data.ts` içinde. Yeni metin eklerken hedef yapıya taşı.
+## Bileşenler
+`components/` altında: Header, Footer, Button/TextLink, Section/Container/SectionTitle, Card (köşe üçgenli çerçeve), ServiceCard, PostCard, LogoStrip, Marquee, StatRow, NewsletterBlock, ContactForm, CtaBlock, ProductCard, Photo, Signature.
+İmza öğesi `Signature.tsx`: "sanatı" altında fırça izi, "mimarisi" altında ölçü çizgisi. Başka yerde en fazla bir kez tekrar et (şu an: "kompozisyondur").
 
 ## Tasarım
-- Zemin `#F6F1E9` · metin `#1F1B16` · tek vurgu `#2F4A3A` (koyu yeşil) · ikincil yüzey `#EDE6DA`
-- Başlık serif (Fraunces / Instrument Serif), metin Inter. Fontlar ş ğ ı İ ç ö ü'yü eksiksiz desteklemeli; `latin-ext` subset'ini yükle.
+- Token'lar `app/globals.css` → `@theme`: paper `#F6F1E9` · ink `#1F1B16` · tek vurgu moss `#2F4A3A` · linen `#EDE6DA` · card · rule. Yeni renk ekleme.
+- Başlık Fraunces (`.display`; `.display-art` yumuşak italik = sanat, `.display-architecture` dik ve sıkı = mimari), metin Inter. Fontlar ş ğ ı İ ç ö ü'yü eksiksiz desteklemeli; `latin-ext` subset'ini yükle.
 - Referans: kaleighmoore.com — editoryal, bol boşluk, büyük serif başlıklar. Karanlık mod yok.
 - Mobilde hamburger menü; "Tanışalım" butonu her zaman görünür. Hero'da rakam yok; rakam satırı küçük ve sakin.
 
