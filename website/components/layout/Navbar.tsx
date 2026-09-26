@@ -8,10 +8,10 @@ import { EASE } from "@/lib/motion";
 
 const navLinks = [
   { label: "Hakkımda", href: "/#hakkimda" },
-  { label: "Danışmanlık", href: "/#danismanlik" },
-  { label: "Koçluk", href: "/#kocluk" },
-  { label: "Blog", href: "/blog" },
-  { label: "İletişim", href: "/#iletisim" },
+  { label: "Markalar İçin", href: "/#markalar" },
+  { label: "Bireyler İçin", href: "/#bireyler" },
+  { label: "Fikirler", href: "/blog" },
+  { label: "Tanışalım", href: "/#iletisim" },
 ];
 
 export default function Navbar() {

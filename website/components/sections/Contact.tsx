@@ -11,6 +11,16 @@ type FormState = {
   message: string;
 };
 
+const EMAIL = "orkunaydin06@gmail.com";
+const WEB3FORMS_KEY = process.env.NEXT_PUBLIC_WEB3FORMS_KEY;
+
+const topics = [
+  "Markam için strateji",
+  "Kariyerim / kişisel markam için",
+  "AI eğitimi",
+  "Diğer",
+];
+
 const initialState: FormState = {
   name: "",
   email: "",
@@ -25,17 +35,48 @@ export default function Contact() {
   );
 
   function handleChange(
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >
   ) {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   }
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
+    const botcheck = new FormData(e.currentTarget as HTMLFormElement).get(
+      "botcheck"
+    );
+    if (botcheck) return;
+    if (!WEB3FORMS_KEY) {
+      setStatus("error");
+      return;
+    }
     setStatus("sending");
-    await new Promise((r) => setTimeout(r, 1200));
-    setStatus("sent");
-    setForm(initialState);
+    try {
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          access_key: WEB3FORMS_KEY,
+          subject: `orkunaydin.com — ${form.subject}`,
+          from_name: form.name,
+          name: form.name,
+          email: form.email,
+          konu: form.subject,
+          message: form.message,
+        }),
+      });
+      const data = await res.json();
+      if (!data.success) throw new Error(data.message);
+      setStatus("sent");
+      setForm(initialState);
+    } catch {
+      setStatus("error");
+    }
   }
 
   return (
@@ -49,37 +90,47 @@ export default function Contact() {
             transition={{ duration: 0.8, ease: EASE }}
           >
             <p className="text-accent text-sm font-medium tracking-[0.2em] uppercase mb-4">
-              İletişim
+              Tanışalım
             </p>
             <h2 className="font-display text-5xl md:text-6xl font-light text-ink leading-tight mb-6">
-              Konuşalım
-              <br />
-              <span className="italic text-accent">birlikte</span>
+              Tanışalım
             </h2>
             <p className="text-ink-muted leading-relaxed mb-8">
-              Proje fikri, işbirliği önerisi, konuşmacı daveti ya da sadece
-              merhaba demek için yazın. Mümkün olan her mesaja yanıt veriyorum.
+              Markanız, kariyeriniz ya da aklınızdaki bir fikir üzerine konuşmak
+              için yazın. Her mesajı okuyor ve en geç iki iş günü içinde
+              dönüyorum.
             </p>
 
             <div className="space-y-4 mb-10">
               {[
                 {
                   label: "E-posta",
-                  value: "merhaba@orkunaydin.com",
-                  href: "mailto:merhaba@orkunaydin.com",
+                  value: EMAIL,
+                  href: `mailto:${EMAIL}`,
                 },
                 {
-                  label: "Bülten",
-                  value: "Dijital Pusulam'a abone ol",
-                  href: "/#iletisim",
+                  label: "LinkedIn",
+                  value: "linkedin.com/in/orkunaydin",
+                  href: "https://www.linkedin.com/in/orkunaydin/",
+                },
+                {
+                  label: "Instagram",
+                  value: "@orkunaydinx",
+                  href: "https://www.instagram.com/orkunaydinx/",
                 },
               ].map((item) => (
                 <div key={item.label} className="flex items-center gap-4">
-                  <span className="text-xs text-ink-faint w-16 tracking-wider uppercase">
+                  <span className="text-xs text-ink-faint w-20 tracking-wider uppercase">
                     {item.label}
                   </span>
                   <a
                     href={item.href}
+                    target={item.href.startsWith("http") ? "_blank" : undefined}
+                    rel={
+                      item.href.startsWith("http")
+                        ? "noopener noreferrer"
+                        : undefined
+                    }
                     className="text-sm text-ink-muted hover:text-accent transition-colors duration-300"
                   >
                     {item.value}
@@ -90,14 +141,17 @@ export default function Contact() {
 
             <div className="p-6 border border-accent/20 rounded-sm bg-accent/5">
               <h3 className="font-display text-lg font-medium text-ink mb-2">
-                Dijital Pusulam Bülteni
+                Kompozisyon
               </h3>
+              <p className="text-accent text-xs italic mb-2">
+                Sorgula. Yansıt. Sahnele.
+              </p>
               <p className="text-ink-muted text-xs leading-relaxed mb-4">
-                Her Salı sabahı: girişimcilik, ürün geliştirme ve üretkenlik
-                üzerine kısa, değerli yazılar. 3.200+ okuyucu.
+                Strateji, marka ve yaratıcılık üzerine düşünceler. Gelen
+                kutunuza, gürültüsüz.
               </p>
               <a
-                href="https://dijitalpusulam.com"
+                href="https://substack.com/@orkunnnn"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 text-xs text-accent hover:text-accent-light transition-colors font-medium"
@@ -143,18 +197,25 @@ export default function Contact() {
                   </svg>
                 </div>
                 <h3 className="font-display text-2xl text-ink mb-2">
-                  Mesajınız İletildi
+                  Mesajınız ulaştı.
                 </h3>
                 <p className="text-ink-muted text-sm">
-                  En kısa sürede yanıt vereceğim.
+                  En kısa sürede dönüyorum.
                 </p>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-5">
+                <input
+                  type="checkbox"
+                  name="botcheck"
+                  className="hidden"
+                  tabIndex={-1}
+                  autoComplete="off"
+                  aria-hidden="true"
+                />
                 {[
                   { name: "name", label: "Adınız", type: "text", placeholder: "Adınız Soyadınız" },
                   { name: "email", label: "E-posta", type: "email", placeholder: "adres@email.com" },
-                  { name: "subject", label: "Konu", type: "text", placeholder: "Ne hakkında konuşalım?" },
                 ].map((field) => (
                   <div key={field.name}>
                     <label
@@ -178,10 +239,36 @@ export default function Contact() {
 
                 <div>
                   <label
+                    htmlFor="subject"
+                    className="block text-xs text-ink-muted mb-2 tracking-wider uppercase"
+                  >
+                    Konu
+                  </label>
+                  <select
+                    id="subject"
+                    name="subject"
+                    value={form.subject}
+                    onChange={handleChange}
+                    required
+                    className="w-full bg-surface border border-border rounded-sm px-4 py-3 text-sm text-ink focus:outline-none focus:border-accent transition-colors duration-300"
+                  >
+                    <option value="" disabled>
+                      Seçin
+                    </option>
+                    {topics.map((t) => (
+                      <option key={t} value={t}>
+                        {t}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+
+                <div>
+                  <label
                     htmlFor="message"
                     className="block text-xs text-ink-muted mb-2 tracking-wider uppercase"
                   >
-                    Mesaj
+                    Mesajınız
                   </label>
                   <textarea
                     id="message"
@@ -200,8 +287,18 @@ export default function Contact() {
                   disabled={status === "sending"}
                   className="w-full bg-accent text-bg py-3.5 text-sm font-medium tracking-wide hover:bg-accent-light transition-colors duration-300 rounded-sm disabled:opacity-60 disabled:cursor-not-allowed"
                 >
-                  {status === "sending" ? "Gönderiliyor..." : "Mesajı Gönder"}
+                  {status === "sending" ? "Gönderiliyor..." : "Gönder"}
                 </button>
+
+                {status === "error" && (
+                  <p className="text-sm text-ink-muted" role="alert">
+                    Mesajınız gönderilemedi. Lütfen doğrudan{" "}
+                    <a href={`mailto:${EMAIL}`} className="text-accent underline">
+                      {EMAIL}
+                    </a>{" "}
+                    adresine yazın.
+                  </p>
+                )}
               </form>
             )}
           </motion.div>

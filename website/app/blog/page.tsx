@@ -4,9 +4,9 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 
 export const metadata = {
-  title: "Blog — Orkun Aydın",
+  title: "Fikirler",
   description:
-    "Girişimcilik, SaaS, verimlilik ve uzaktan çalışma üzerine yazılar.",
+    "Strateji, marka, sanat ve yaratıcılık üzerine uzun soluklu yazılar.",
 };
 
 export default function BlogPage() {
@@ -17,14 +17,13 @@ export default function BlogPage() {
         <div className="max-w-6xl mx-auto">
           <div className="mb-16">
             <p className="text-accent text-sm font-medium tracking-[0.2em] uppercase mb-4">
-              Blog
+              Yazılar
             </p>
             <h1 className="font-display text-6xl md:text-7xl font-light text-ink leading-tight mb-6">
-              Yazılar
+              Fikirler
             </h1>
             <p className="text-ink-muted max-w-xl leading-relaxed">
-              Girişimcilik, ürün geliştirme, verimlilik ve Türkiye'den dünyaya
-              uzanan dijital iş üzerine uzun formatlı, düşündürücü yazılar.
+              Strateji, marka, sanat ve yaratıcılık üzerine uzun soluklu yazılar.
             </p>
           </div>
 

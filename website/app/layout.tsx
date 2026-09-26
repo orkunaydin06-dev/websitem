@@ -18,21 +18,27 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
-  title: "Orkun Aydın — Girişimci, Ürün Kurucusu, Yazar",
+  title: {
+    default: "Orkun Aydın — Marka ve Büyüme Stratejisti",
+    template: "%s — Orkun Aydın",
+  },
   description:
-    "Dijital ürünler kuran, fikirler üreten ve Türkiye'den dünyaya uzanan bir girişimcinin köşesi.",
+    "Coca-Cola, Unilever, L'Oréal ve Google deneyimiyle markalar için büyüme stratejisi; profesyoneller için kişisel marka, kariyer koçluğu ve AI eğitimi.",
   keywords: [
+    "marka stratejisi",
+    "büyüme stratejisi",
+    "marka danışmanlığı",
+    "kişisel marka",
+    "kariyer koçluğu",
+    "AI eğitimi",
     "Orkun Aydın",
-    "girişimci",
-    "ürün kurucusu",
-    "SaaS",
-    "bootstrapping",
-    "Türkiye",
   ],
   openGraph: {
-    title: "Orkun Aydın",
-    description: "Girişimci, Ürün Kurucusu, Yazar",
+    title: "Orkun Aydın — Markalaşmanın sanatı. Büyümenin mimarisi.",
+    description:
+      "Coca-Cola, Unilever, L'Oréal ve Google deneyimiyle markalar için büyüme stratejisi; profesyoneller için kişisel marka, kariyer koçluğu ve AI eğitimi.",
     type: "website",
+    locale: "tr_TR",
   },
 };
 

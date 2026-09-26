@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { consultingServices, coachingServices } from "@/lib/data";
+import { brandServices, individualServices, type Service } from "@/lib/data";
 import { EASE } from "@/lib/motion";
 
 const fadeUp = {
@@ -33,11 +33,38 @@ function CheckIcon() {
   );
 }
 
+function ServiceBody({ service }: { service: Service }) {
+  return (
+    <>
+      <h3 className="font-display text-2xl font-medium text-ink mb-3 group-hover:text-accent transition-colors duration-300">
+        {service.title}
+      </h3>
+      <p className="text-ink-faint text-xs leading-relaxed mb-3">
+        {service.audience}
+      </p>
+      <p className="text-ink-muted text-sm leading-relaxed mb-6">
+        {service.description}
+      </p>
+      <ul className="space-y-2.5 mb-6">
+        {service.details.map((detail) => (
+          <li key={detail} className="flex items-start gap-2.5 text-xs text-ink-muted">
+            <CheckIcon />
+            {detail}
+          </li>
+        ))}
+      </ul>
+      <p className="text-xs text-ink-faint tracking-wider uppercase">
+        {service.format}
+      </p>
+    </>
+  );
+}
+
 export default function Services() {
   return (
     <>
-      {/* Danışmanlık */}
-      <section id="danismanlik" className="py-32 px-6">
+      {/* Markalar İçin */}
+      <section id="markalar" className="py-32 px-6">
         <div className="max-w-6xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -47,17 +74,18 @@ export default function Services() {
             className="mb-16"
           >
             <p className="text-accent text-sm font-medium tracking-[0.2em] uppercase mb-4">
-              Danışmanlık
+              Birlikte çalışmanın yolları
             </p>
             <div className="flex flex-col sm:flex-row sm:items-end gap-6 sm:justify-between">
               <h2 className="font-display text-5xl md:text-6xl font-light text-ink leading-tight">
-                İşletmenizi
+                Markalar
                 <br />
-                <span className="italic text-accent">büyütelim</span>
+                <span className="italic text-accent">için</span>
               </h2>
               <p className="text-ink-muted max-w-xs text-sm leading-relaxed">
-                Küresel FMCG ve teknoloji şirketlerindeki 10 yıllık deneyimi
-                işletmenize uyarlayan strateji danışmanlığı.
+                Strateji seansından uçtan uca büyüme sprintine, ekibinize özel AI
+                atölyesine kadar. Büyük markaların büyüme disiplinini, kendi
+                ölçeğinize uyarlanmış haliyle.
               </p>
             </div>
           </motion.div>
@@ -69,7 +97,7 @@ export default function Services() {
             viewport={{ once: true, margin: "-80px" }}
             className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12"
           >
-            {consultingServices.map((service) => (
+            {brandServices.map((service) => (
               <motion.div
                 key={service.id}
                 variants={fadeUp}
@@ -77,20 +105,7 @@ export default function Services() {
               >
                 <div className="absolute inset-0 bg-gradient-to-br from-accent/4 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400" />
                 <div className="relative z-10">
-                  <h3 className="font-display text-2xl font-medium text-ink mb-3 group-hover:text-accent transition-colors duration-300">
-                    {service.title}
-                  </h3>
-                  <p className="text-ink-muted text-sm leading-relaxed mb-6">
-                    {service.description}
-                  </p>
-                  <ul className="space-y-2.5">
-                    {service.details.map((detail) => (
-                      <li key={detail} className="flex items-start gap-2.5 text-xs text-ink-muted">
-                        <CheckIcon />
-                        {detail}
-                      </li>
-                    ))}
-                  </ul>
+                  <ServiceBody service={service} />
                 </div>
               </motion.div>
             ))}
@@ -107,7 +122,7 @@ export default function Services() {
               href="/#iletisim"
               className="inline-flex items-center gap-2 bg-accent text-bg px-8 py-4 text-sm font-medium tracking-wide hover:bg-accent-light transition-colors duration-300 rounded-sm"
             >
-              Proje Görüşmesi Ayarla
+              Tanışalım
               <svg
                 width="14"
                 height="14"
@@ -125,8 +140,8 @@ export default function Services() {
         </div>
       </section>
 
-      {/* Koçluk */}
-      <section id="kocluk" className="py-32 px-6 bg-surface">
+      {/* Bireyler İçin */}
+      <section id="bireyler" className="py-32 px-6 bg-surface">
         <div className="max-w-6xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -136,17 +151,17 @@ export default function Services() {
             className="mb-16"
           >
             <p className="text-accent text-sm font-medium tracking-[0.2em] uppercase mb-4">
-              Koçluk
+              Birlikte çalışmanın yolları
             </p>
             <div className="flex flex-col sm:flex-row sm:items-end gap-6 sm:justify-between">
               <h2 className="font-display text-5xl md:text-6xl font-light text-ink leading-tight">
-                Kariyerinizi
+                Bireyler
                 <br />
-                <span className="italic text-accent">hızlandıralım</span>
+                <span className="italic text-accent">için</span>
               </h2>
               <p className="text-ink-muted max-w-xs text-sm leading-relaxed">
-                FMCG ve teknoloji sektörlerinde üst düzey kariyer hedefleriniz
-                için birebir koçluk. Kendi yolumdan öğrendiklerimi paylaşıyorum.
+                Kişisel markanızı ve kariyer yolunuzu netleştirin, AI'ı işinizin
+                gerçek bir parçası yapın.
               </p>
             </div>
           </motion.div>
@@ -158,7 +173,7 @@ export default function Services() {
             viewport={{ once: true, margin: "-80px" }}
             className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12"
           >
-            {coachingServices.map((service) => (
+            {individualServices.map((service) => (
               <motion.div
                 key={service.id}
                 variants={fadeUp}
@@ -166,20 +181,7 @@ export default function Services() {
               >
                 <div className="absolute inset-0 bg-gradient-to-br from-accent/4 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400" />
                 <div className="relative z-10">
-                  <h3 className="font-display text-2xl font-medium text-ink mb-3 group-hover:text-accent transition-colors duration-300">
-                    {service.title}
-                  </h3>
-                  <p className="text-ink-muted text-sm leading-relaxed mb-6">
-                    {service.description}
-                  </p>
-                  <ul className="space-y-2.5">
-                    {service.details.map((detail) => (
-                      <li key={detail} className="flex items-start gap-2.5 text-xs text-ink-muted">
-                        <CheckIcon />
-                        {detail}
-                      </li>
-                    ))}
-                  </ul>
+                  <ServiceBody service={service} />
                 </div>
               </motion.div>
             ))}
@@ -196,7 +198,7 @@ export default function Services() {
               href="/#iletisim"
               className="inline-flex items-center gap-2 border border-accent text-accent px-8 py-4 text-sm font-medium tracking-wide hover:bg-accent hover:text-bg transition-colors duration-300 rounded-sm"
             >
-              Keşif Seansı Ayarla
+              Tanışalım
               <svg
                 width="14"
                 height="14"

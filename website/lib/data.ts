@@ -1,86 +1,87 @@
-export type ConsultingService = {
+export type Service = {
   id: string;
   title: string;
+  audience: string;
   description: string;
   details: string[];
-  cta: string;
+  format: string;
 };
 
-export type CoachingService = {
-  id: string;
-  title: string;
-  description: string;
-  details: string[];
-  cta: string;
-};
-
-export const consultingServices: ConsultingService[] = [
+export const brandServices: Service[] = [
   {
-    id: "revenue-growth",
-    title: "Gelir Büyüme Yönetimi",
+    id: "strateji-seansi",
+    title: "Strateji Seansı",
+    audience:
+      "Önünde net bir büyüme sorusu olan markalar. Büyüyen işletmelerden kurumsal ekiplere kadar.",
     description:
-      "Fiyatlandırma stratejisi, promosyon optimizasyonu ve kanal yönetimiyle sürdürülebilir büyüme. 9 ülke operasyonunda uyguladığım sistematik RGM yaklaşımı.",
+      "Tek bir odaklı oturumda, en kritik sorunuza yönelik yazılı bir yol haritası.",
     details: [
-      "Fiyatlandırma stratejisi ve P&L optimizasyonu",
-      "Promosyon ROI analizi ve bütçe tahsisi",
-      "Kanal ve kategori büyüme planlaması",
-      "Rakip analizi ve pazar konumlandırma",
+      "Oturum öncesi kısa brif ve mevcut verilerin incelenmesi",
+      "Online çalışma oturumu",
+      "Oturum sonrası yazılı özet ve öncelikli aksiyon listesi",
+      "İki hafta boyunca e-postayla takip soruları",
     ],
-    cta: "Konuşalım",
+    format: "Online, 2–3 saat",
   },
   {
-    id: "marketing-strategy",
-    title: "Pazarlama Stratejisi",
+    id: "marka-buyume-sprinti",
+    title: "Marka & Büyüme Sprinti",
+    audience:
+      "Markasını netleştirip büyümeyi sisteme bağlamak isteyen KOBİ'ler ve büyüyen markalar.",
     description:
-      "Doğru kitleye, doğru mesajla, doğru zamanda ulaşmak. L'Oréal, Unilever ve Google'da geliştirdiğim strateji çerçevesiyle markanızı büyütün.",
+      "Konumlandırmadan fiyata, kanaldan mesaja uzanan, uygulanabilir tek bir büyüme planı.",
     details: [
-      "Marka konumlandırma ve mesaj mimarisi",
-      "Dijital pazarlama kanal stratejisi",
-      "İçerik stratejisi ve otorite inşası",
-      "Pazar segmentasyonu ve hedef kitle analizi",
+      "Pazar, rakip ve müşteri analizi",
+      "Marka konumlandırması ve mesaj mimarisi",
+      "Fiyatlandırma ve ürün portföyü stratejisi",
+      "Kanal ve dijital pazarlama planı, 90 günlük aksiyon takvimi",
     ],
-    cta: "Strateji Görüşmesi",
+    format: "Online, 4–6 hafta, haftalık oturumlar",
   },
   {
-    id: "commercial-excellence",
-    title: "Ticari Mükemmellik",
+    id: "ai-atolyesi",
+    title: "AI & Dijital Dönüşüm Atölyesi",
+    audience: "Pazarlama, satış ve ticari ekipler.",
     description:
-      "Satış ekibi etkinliği, kategori yönetimi ve müşteri geliştirme. Karaca ve Hepsiburada'daki kurumsal dönüşüm deneyimimi işletmenize taşıyorum.",
+      "Ekibiniz AI'ı merak konusu olmaktan çıkarıp gerçek iş akışlarına entegre eder.",
     details: [
-      "Satış ekibi yapılandırması ve KPI tasarımı",
-      "Kategori yönetimi ve raf stratejisi",
-      "Müşteri portföyü yönetimi",
-      "Go-to-market stratejisi ve pazar girişi",
+      "Atölye öncesi ekip ihtiyaç analizi",
+      "Pazarlama ve ticari süreçlere özel uygulamalı atölye",
+      "Ekibinize özel prompt ve iş akışı kütüphanesi",
+      "Atölye sonrası uygulama rehberi",
     ],
-    cta: "Detayları Konuşalım",
+    format: "Online, yarım gün ya da tam gün",
   },
 ];
 
-export const coachingServices: CoachingService[] = [
+export const individualServices: Service[] = [
   {
-    id: "career-acceleration",
-    title: "Kariyer İvmelendirme",
+    id: "kariyer-koclugu",
+    title: "Kişisel Marka & Kariyer Koçluğu",
+    audience:
+      "FMCG, perakende ve teknolojide kariyerinin başındaki ya da yön değiştirmek isteyen profesyoneller.",
     description:
-      "FMCG, perakende ve teknoloji sektörlerinde üst düzey kariyer hedeflerinize giden yolu birlikte çizelim. METU → Lund MSc → L'Oréal → Coca-Cola → Google yolculuğumdan öğrendiklerimi paylaşıyorum.",
+      "Kim olduğunuzu ve nereye gittiğinizi net anlatan bir kişisel marka ve kariyer haritası.",
     details: [
       "Kariyer haritası ve hedef belirleme",
-      "Uluslararası kariyer geçiş planlaması",
-      "Müzakere ve promosyon stratejileri",
-      "Güçlü CV ve LinkedIn profili oluşturma",
+      "Kişisel marka konumlandırması",
+      "CV ve LinkedIn profilinin yeniden kurgulanması",
+      "Mülakat ve uluslararası kariyer geçişi hazırlığı",
     ],
-    cta: "Seansı Ayarla",
+    format: "Online, 4 oturumluk program",
   },
   {
-    id: "leadership-development",
-    title: "Liderlik Gelişimi",
+    id: "ai-okuryazarligi",
+    title: "AI Okuryazarlığı Birebir",
+    audience: "AI'ı günlük işinde gerçekten kullanmak isteyen profesyoneller.",
     description:
-      "Takım yönetimi, stratejik düşünme ve üst düzey sunum becerileri. McKinsey ve Simon Kucher metodolojileriyle çalışma deneyimimi aktarıyorum.",
+      "AI'ı rastgele denemekten çıkıp işinize oturan bir sistemle kullanırsınız.",
     details: [
-      "Stratejik düşünme ve karar alma çerçeveleri",
-      "Üst yönetimle iletişim ve etkileme",
-      "Çok uluslu takım yönetimi",
-      "Büyüme odaklı liderlik mindset'i",
+      "Mevcut iş akışınızın analizi",
+      "Etkili prompt yazmanın temelleri",
+      "İşinize özel 3–5 AI iş akışının birlikte kurulması",
+      "Doğru araç seçimi",
     ],
-    cta: "Keşif Görüşmesi",
+    format: "Online, 3 oturum",
   },
 ];

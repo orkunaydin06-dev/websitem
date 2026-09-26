@@ -5,11 +5,11 @@ import Image from "next/image";
 import { EASE } from "@/lib/motion";
 
 const timeline = [
-  { year: "2025–", company: "Google", role: "Account Manager, Dublin İrlanda" },
+  { year: "2025–", company: "Google", role: "Account Strategist · Dublin" },
   { year: "2023–25", company: "Coca-Cola İçecek", role: "Grup Gelir Büyüme Yöneticisi · 9 ülke" },
   { year: "2022–23", company: "Unilever / Lipton", role: "Ticari Kategori & Müşteri Pazarlama Yöneticisi" },
   { year: "2021", company: "Hepsiburada", role: "Kategori Geliştirme Yöneticisi" },
-  { year: "2019–21", company: "Karaca", role: "Satış Yöneticisi & CEO Strateji Danışmanı" },
+  { year: "2019–21", company: "Karaca Grubu", role: "CEO Strateji Danışmanı & Satış Direktörü (Homend)" },
   { year: "2015–18", company: "L'Oréal", role: "Kilit Hesap Yöneticisi" },
 ];
 
@@ -74,9 +74,9 @@ export default function About() {
             </motion.h2>
 
             <motion.p variants={fadeUp} className="text-ink-muted leading-relaxed mb-4">
-              Merhaba. Ben Orkun — pazarlama stratejisti ve büyüme danışmanı.
-              ODTÜ'de işletme, İsveç'te Lund Üniversitesi'nde uluslararası pazarlama
-              üzerine yüksek lisans yaptım.
+              Merhaba, ben Orkun. Marka ve büyüme stratejistiyim. ODTÜ'de işletme
+              okudum, ardından İsveç'te Lund Üniversitesi'nde uluslararası
+              pazarlama ve marka yönetimi üzerine yüksek lisans yaptım.
             </motion.p>
 
             <motion.p variants={fadeUp} className="text-ink-muted leading-relaxed mb-4">
@@ -87,9 +87,9 @@ export default function About() {
             </motion.p>
 
             <motion.p variants={fadeUp} className="text-ink-muted leading-relaxed mb-10">
-              İş dışında sanat, felsefe ve kişisel gelişim üzerine düşünüyor,
-              yazıyorum. Büyüme zihniyetini hem kurumsal hem bireysel boyutta
-              nasıl inşa ederiz sorusu benim için hâlâ en ilgi çekici soru.
+              İşin dışında müzik üretiyor, DJ'lik yapıyor, sanat ve felsefe
+              üzerine yazıyorum. Bunları hobi olarak değil, düşünme biçimimin
+              parçası olarak görüyorum.
             </motion.p>
 
             <motion.div variants={stagger} className="space-y-2">

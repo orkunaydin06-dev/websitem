@@ -24,19 +24,19 @@ export default function Home() {
             <div className="flex flex-col sm:flex-row sm:items-end gap-4 sm:gap-0 sm:justify-between mb-16">
               <div>
                 <p className="text-accent text-sm font-medium tracking-[0.2em] uppercase mb-4">
-                  Blog
+                  Fikirler
                 </p>
                 <h2 className="font-display text-5xl md:text-6xl font-light text-ink leading-tight">
                   Son
                   <br />
-                  <span className="italic text-accent">yazılar</span>
+                  <span className="italic text-accent">fikirler</span>
                 </h2>
               </div>
               <Link
                 href="/blog"
                 className="inline-flex items-center gap-2 text-sm text-ink-muted hover:text-accent transition-colors duration-300 font-medium shrink-0"
               >
-                Tüm Yazılar
+                Tüm fikirler
                 <svg
                   width="14"
                   height="14"

@@ -19,7 +19,7 @@ export async function generateMetadata({
   const post = getBlogPost(slug);
   if (!post) return {};
   return {
-    title: `${post.title} — Orkun Aydın`,
+    title: post.title,
     description: post.excerpt,
   };
 }
@@ -102,7 +102,7 @@ export default async function BlogPostPage({
                 href="/#iletisim"
                 className="text-sm text-accent hover:text-accent-light transition-colors"
               >
-                Yorumla →
+                Tanışalım →
               </Link>
             </div>
           </div>

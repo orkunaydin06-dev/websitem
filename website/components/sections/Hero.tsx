@@ -29,34 +29,33 @@ export default function Hero() {
             variants={fadeUp}
             className="text-accent text-xs font-medium tracking-[0.25em] uppercase mb-8"
           >
-            Dublin, İrlanda
+            Marka ve Büyüme Stratejisti · Dublin
           </motion.p>
 
           <motion.h1
             variants={fadeUp}
-            className="font-display text-6xl sm:text-7xl md:text-8xl font-light text-ink leading-[0.92] mb-8"
+            className="font-display text-5xl sm:text-6xl md:text-7xl font-light text-ink leading-[1.02] mb-8"
           >
-            Pazarlama
+            Markalaşmanın sanatı.
             <br />
-            <span className="italic text-accent">stratejisti</span>
-            <br />
-            ve danışman.
+            <span className="italic text-accent">Büyümenin mimarisi.</span>
           </motion.h1>
 
           <motion.p
             variants={fadeUp}
             className="text-lg text-ink-muted max-w-xl mx-auto leading-relaxed mb-4"
           >
-            Google'da hesap yöneticisi. Daha önce Coca-Cola İçecek'te 9 ülke için
-            Gelir Büyüme Yönetimi, Unilever ve L'Oréal'da ticari pazarlama.
+            10 yıl boyunca Coca-Cola, Unilever ve L'Oréal'da büyüme stratejisi
+            kurdum; bugün Google'da çalışıyorum. Bu deneyimi Türkiye'deki markalar
+            ve kariyerini inşa eden profesyoneller için kullanıyorum.
           </motion.p>
 
           <motion.p
             variants={fadeUp}
             className="text-sm text-ink-faint max-w-md mx-auto leading-relaxed mb-12"
           >
-            İşletmelere büyüme stratejisi danışmanlığı, profesyonellere kariyer
-            koçluğu yapıyorum. Sanat, felsefe ve kişisel gelişim üzerine yazıyorum.
+            ODTÜ İşletme · Lund Üniversitesi, Uluslararası Pazarlama ve Marka
+            Yönetimi Yüksek Lisansı (İsveç)
           </motion.p>
 
           <motion.div
@@ -64,10 +63,10 @@ export default function Hero() {
             className="flex flex-wrap items-center justify-center gap-4"
           >
             <Link
-              href="/#danismanlik"
+              href="/#iletisim"
               className="inline-flex items-center gap-2 bg-accent text-bg px-7 py-3.5 text-sm font-medium tracking-wide hover:bg-accent-light transition-colors duration-300 rounded-sm"
             >
-              Danışmanlık
+              Tanışalım
               <svg
                 width="14"
                 height="14"
@@ -82,10 +81,10 @@ export default function Hero() {
               </svg>
             </Link>
             <Link
-              href="/blog"
+              href="/#markalar"
               className="inline-flex items-center gap-2 border border-border text-ink-muted px-7 py-3.5 text-sm font-medium tracking-wide hover:border-accent hover:text-accent transition-colors duration-300 rounded-sm"
             >
-              Yazıları Oku
+              Hizmetleri İncele
             </Link>
           </motion.div>
         </motion.div>
