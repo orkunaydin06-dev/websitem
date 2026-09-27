@@ -38,11 +38,10 @@ export const companies = [
   { name: "Karaca", logo: "/logos/karaca.svg" },
 ];
 
-export const marquee = ["Sorgula", "Yansıt", "Sahnele"];
-
 export const newsletter = {
   title: "Kompozisyon",
   slogan: "Sorgula. Yansıt. Sahnele.",
+  marquee: ["Sorgula", "Yansıt", "Sahnele"], // bloğun altında kayan şerit
   text: "Strateji, marka ve yaratıcılık üzerine düşünceler. Gelen kutunuza, gürültüsüz.",
   button: "Abone Ol",
   href: SUBSTACK_URL,

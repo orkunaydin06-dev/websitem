@@ -1,4 +1,4 @@
-import { companies, home, marquee, photos, stats } from "@/content/site";
+import { companies, home, photos, stats } from "@/content/site";
 import { getPosts } from "@/lib/posts";
 import { Button, TextLink } from "@/components/Button";
 import { Card } from "@/components/Card";
@@ -6,7 +6,6 @@ import { Container, Section, SectionTitle } from "@/components/Section";
 import { BrushUnderline, RulerUnderline } from "@/components/Signature";
 import { Photo } from "@/components/Photo";
 import { LogoStrip } from "@/components/LogoStrip";
-import { Marquee } from "@/components/Marquee";
 import { StatRow } from "@/components/StatRow";
 import { PostCard } from "@/components/PostCard";
 import { NewsletterBlock } from "@/components/NewsletterBlock";
@@ -67,13 +66,7 @@ export default function Home() {
         </Container>
       </section>
 
-      <Container>
-        <LogoStrip title={home.logosTitle} companies={companies} />
-      </Container>
-
-      <div className="mt-section-sm md:mt-section">
-        <Marquee words={marquee} />
-      </div>
+      <LogoStrip title={home.logosTitle} companies={companies} />
 
       {/* Problem */}
       <Section>

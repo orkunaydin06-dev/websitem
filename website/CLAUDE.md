@@ -29,6 +29,7 @@ Metin değişikliği yalnızca `content/` klasörüne dokunmalı, bileşenlere d
 
 ## Bileşenler
 `components/` altında: Header, Footer, Button/TextLink, Section/Container/SectionTitle, Card (köşe üçgenli çerçeve), ServiceCard, PostCard, LogoStrip, Marquee, StatRow, NewsletterBlock, ContactForm, CtaBlock, ProductCard, Photo, Signature.
+Kayan şeritler (Orkun'un kararı, 2026-09-27): ana sayfadaki yeşil şeritte şirket logoları kayar (`LogoStrip`, logolar `public/logos/*.svg`, krem tek renk, boyları en-boy oranından otomatik). "Sorgula ⁂ Yansıt ⁂ Sahnele" yalnızca Kompozisyon bülten bloğunda (`NewsletterBlock`) kullanılır.
 İmza öğesi `Signature.tsx`: "sanatı" altında fırça izi, "mimarisi" altında ölçü çizgisi. Başka yerde en fazla bir kez tekrar et (şu an: "kompozisyondur").
 
 ## Tasarım
